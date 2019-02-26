@@ -61,6 +61,10 @@ setup()
 		while (true) ;
 	}
 
+	// When button B (the middle button, or index 1) is pressed, run
+	// the calamity function.
+	display.registerCallback(1, calamity);
+
 	// This starts a background thread that runs the update tasks
 	// for the featherwings. For example, in this sketch, the OLED 
 	// Featherwings need to be checked regularly. Another scheduler
