@@ -18,7 +18,7 @@ typedef struct {
 } screenLine;
 
 
-class OLEDWing : public FeatherWing {
+class OLED : public FeatherWing {
 public:
 	static const int	HEIGHT = 32;
 	static const int	WIDTH  = 128;
@@ -28,12 +28,12 @@ public:
 	// The default constructor uses the standard buttons, but
 	// if the buttons have been redirected elsewhere, there is
 	// a constructor for that.
-	OLEDWing() 
+	OLED() 
 	: buttonA(9), buttonB(6), buttonC(5), oled(Adafruit_SSD1306(128, 32, &Wire)) 
 	{
 		registerWing(this);
 	};
-	OLEDWing(uint8_t a, uint8_t b, uint8_t c)
+	OLED(uint8_t a, uint8_t b, uint8_t c)
 	    : buttonA(a), buttonB(b), buttonC(c)
 	{
 		registerWing(this);
@@ -54,6 +54,7 @@ public:
 	void	clearText();
 	void	print(uint8_t line, const char *text);
 	void	iprint(uint8_t line, const char *text);
+	void	clearLine(uint8_t line);
 
 	// Button handling.
 	void	sample();

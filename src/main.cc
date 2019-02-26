@@ -6,6 +6,7 @@
 #include <feather/wing/wing.h>
 #include <feather/wing/adalogger.h>
 #include <feather/wing/gps.h>
+#include <feather/wing/oled.h>
 
 #include <string.h>
 
@@ -17,8 +18,8 @@ FeatherM4	board;
 #error Unknown board.
 #endif
 
-AdaLogger	adalogger;
-GPS		gps;
+static OLED	display;
+static GPS	gps;
 
 
 void
@@ -26,13 +27,13 @@ setup()
 {
 	board.setup(9600, true);
 
-	registerWing(&adalogger);
+	registerWing(&display);
 	registerWing(&gps);
 	if (!initialiseWings()) {
 		while (1) ;
 	}
 
-	Serial.println("BOOT OK");
+	display.print(0, "BOOT OK");
 
 	Scheduler.startLoop(runWings);
 }
@@ -45,24 +46,15 @@ loop()
 	DateTime	dto;
 
 	if (gps.haveFix()) {
-		Serial.println("GPS FIXED");
+		display.iprint(0, "GPS FIX");
 	}
 	else {
-		Serial.println("GPS NO FIX");
+		display.iprint(0, "NO GPS FIX");
 	}
 
-	if (!adalogger.getDateTime(dto)) {
-		Serial.println("RTC not ready");
-		if (gps.isClockReady()) {
-			adalogger.adjustRTC(dto);
-			Serial.println("RTC adjusted from GPS");
-		}
+	if (clockFormatTime(gps, buf)) {
+		display.print(1, buf);
 	}
-	else {
-		sprintf(buf, "%04d-%02d-%02d %02d:%0d:%02d", dto.year(),
-		        dto.month(), dto.day(), dto.hour(), dto.minute(),
-		        dto.second());
-		Serial.println(buf);
-	}
-	yieldFor(1000);
+
+	yieldFor(100);
 }

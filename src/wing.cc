@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #undef min
 #undef max
+#include <string>
 #include <vector>
 #include <feather/wing/wing.h>
 #include <Scheduler.h>
@@ -26,7 +27,6 @@ initialiseWings()
 			Serial.println(wingRegistry[i]->name());
 			return false;
 		}
-		delay(100);
 	}
 
 	return true;
@@ -42,5 +42,27 @@ runWings()
 		wingRegistry[i]->task();
 		yield();
 	}
-	delay(10);
+}
+
+
+void
+scheduleWingTasks()
+{
+	Scheduler.startLoop(runWings);
+}
+
+
+bool
+clockFormatTime(Clock &clock, char *buf)
+{
+	DateTime	dto;
+
+	if (!clock.getDateTime(dto)) {
+		return false;
+	}
+
+	sprintf(buf, "%04d-%02d-%02d %02d:%02d:%02d",
+		dto.year(), dto.month(), dto.day(),
+		dto.hour(), dto.minute(), dto.second());
+	return true;
 }

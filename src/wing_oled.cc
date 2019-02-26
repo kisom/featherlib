@@ -5,7 +5,7 @@
 
 
 bool
-OLEDWing::setup()
+OLED::setup()
 {
 	if (!this->oled.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
 		return false;
@@ -18,35 +18,35 @@ OLEDWing::setup()
 
 
 const char *
-OLEDWing::name()
+OLED::name()
 {
 	return "OLED";
 }
 
 
 void
-OLEDWing::clear()
+OLED::clear()
 {
 	this->oled.clearDisplay();
 }
 
 
 void
-OLEDWing::pixel(uint16_t x, uint16_t y)
+OLED::pixel(uint16_t x, uint16_t y)
 {
 	this->oled.drawPixel(x, y, WHITE);
 }
 
 
 void
-OLEDWing::clearPixel(uint16_t x, uint16_t y)
+OLED::clearPixel(uint16_t x, uint16_t y)
 {
 	this->oled.drawPixel(x, y, BLACK);
 }
 
 
 void
-OLEDWing::circle(uint16_t x, uint16_t y, uint16_t r, bool fill)
+OLED::circle(uint16_t x, uint16_t y, uint16_t r, bool fill)
 {
 	if (fill) {
 		this->oled.fillCircle(x, y, r, WHITE);
@@ -58,14 +58,14 @@ OLEDWing::circle(uint16_t x, uint16_t y, uint16_t r, bool fill)
 
 
 void
-OLEDWing::show()
+OLED::show()
 {
 	this->oled.display();
 }
 
 
 void
-OLEDWing::clearText()
+OLED::clearText()
 {
 	for (uint8_t i = 0; i < this->MAX_LINES; i++) {
 		memset(this->lines[i].text, 0, this->MAX_TEXT+1);
@@ -77,7 +77,7 @@ OLEDWing::clearText()
 
 
 void
-OLEDWing::showLines()
+OLED::showLines()
 {
 	this->oled.clearDisplay();
 	for (uint8_t i = 0; i < this->MAX_LINES; i++) {
@@ -95,7 +95,7 @@ OLEDWing::showLines()
 
 
 void
-OLEDWing::print(uint8_t line, const char *text)
+OLED::print(uint8_t line, const char *text)
 {
 	if (line > (this->MAX_LINES - 1)) {
 		return;
@@ -111,7 +111,7 @@ OLEDWing::print(uint8_t line, const char *text)
 
 
 void
-OLEDWing::iprint(uint8_t line, const char *text)
+OLED::iprint(uint8_t line, const char *text)
 {
 	if (line > (this->MAX_LINES - 1)) {
 		return;
@@ -127,7 +127,19 @@ OLEDWing::iprint(uint8_t line, const char *text)
 
 
 void
-OLEDWing::sample()
+OLED::clearLine(uint8_t line)
+{
+	if (line > (this->MAX_LINES - 1)) {
+		return;
+	}
+
+	memset(this->lines[line].text, 0, MAX_TEXT+1);
+	showLines();	
+}
+
+
+void
+OLED::sample()
 {
 	this->buttonA.sample();
 	this->buttonB.sample();
@@ -136,7 +148,7 @@ OLEDWing::sample()
 
 
 void
-OLEDWing::registerCallback(uint8_t button, void (*callback)())
+OLED::registerCallback(uint8_t button, void (*callback)())
 {
 	switch (button) {
 	case 0:
@@ -156,14 +168,14 @@ OLEDWing::registerCallback(uint8_t button, void (*callback)())
 
 
 void
-OLEDWing::unregisterCallback(uint8_t button)
+OLED::unregisterCallback(uint8_t button)
 {
 	this->registerCallback(button, nullptr);
 }
 
 
 void
-OLEDWing::unregisterAllCallbacks()
+OLED::unregisterAllCallbacks()
 {
 	for (uint8_t i = 0; i < 3; i++) {
 		this->unregisterCallback(i);
@@ -172,10 +184,8 @@ OLEDWing::unregisterAllCallbacks()
 
 
 void
-OLEDWing::task()
+OLED::task()
 {
-	while (true) {
-		this->sample();
-		yield();
-	}
+	this->sample();
+	yield();
 }

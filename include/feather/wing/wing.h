@@ -35,6 +35,8 @@ public:
 void	registerWing(FeatherWing *wing);
 bool	initialiseWings();
 void	runWings();
+void	scheduleWingTasks();
+bool	clockFormatTime(Clock &clock, char *buf);
 
 
 #endif // __FEATHERLIB_WING_WING_H

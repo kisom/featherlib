@@ -14,7 +14,7 @@
         "type": "git",
         "url": "https://github.com/kisom/featherlib.git"
     },
-    "version": "1.0.0",
+    "version": "0.1.0",
     "license": "MIT",
     "frameworks": [
         "arduino"
@@ -23,10 +23,11 @@
         "atmelsam"
     ],
     "export": {
-        "exclude": ["doc"]
+        "exclude": ["doc", "examples"]
     },
     "dependencies": [
         {"name": "Adafruit GFX Library"},
+        {"name": "Adafruit GPS Library"},
         {"name": "Adafruit SSD1306"},
         {"name": "RTClib"},
         {"name": "Scheduler"},

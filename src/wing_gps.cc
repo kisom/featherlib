@@ -57,7 +57,7 @@ GPS::position(Position &pos)
 	pos.timestamp.day = gps.day;
 	pos.timestamp.hour = gps.hour;
 	pos.timestamp.minute = gps.minute;
-	pos.timestamp.second = static_cast<uint8_t>(gps.milliseconds / 1000);
+	pos.timestamp.second = gps.seconds;
 	pos.fix.quality = gps.fixquality;
 	pos.fix.satellites = gps.satellites;
 
@@ -90,6 +90,7 @@ GPS::getDateTime(DateTime &dto)
 	if (!this->position(pos)) {
 		return false;
 	}
+
 	dto = DateTime(pos.timestamp.year, pos.timestamp.month,
 	               pos.timestamp.day, pos.timestamp.hour,
 	               pos.timestamp.minute, pos.timestamp.second);

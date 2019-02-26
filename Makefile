@@ -1,9 +1,31 @@
 BOARD :=	adafruit_feather_m0
 FIRMWARE :=	.pioenvs/$(BOARD)/firmware.bin
+SOURCES :=					\
+		include/feather/board.h		\
+		include/feather/button.h	\
+		include/feather/feather_m0.h	\
+		include/feather/feather_m4.h	\
+		include/feather/scheduling.h	\
+		include/feather/util.h		\
+		include/feather/wing/adalogger.h\
+		include/feather/wing/gps.h	\
+		include/feather/wing/oled.h	\
+		include/feather/wing/test.h	\
+		include/feather/wing/wing.h	\
+		src/button.cc			\
+		src/feather_m0.cc		\
+		src/feather_m4.cc		\
+		src/util.cc			\
+		src/wing_adalogger.cc		\
+		src/wing.cc			\
+		src/wing_gps.cc			\
+		src/wing_oled.cc		\
+		src/wing_test.cc		\
+		src/main.cc
 
 PIO :=	pio run -e $(BOARD)
 
-$(FIRMWARE):
+$(FIRMWARE): $(SOURCES)
 	$(PIO)
 
 PHONY: all
@@ -25,6 +47,14 @@ deploy: $(FIRMWARE)
 clean:
 	$(PIO) -t clean
 
-.PHONY:
+.PHONY: cloc
 cloc:
 	cloc include lib src
+
+.PHONY: install
+install:
+	pio lib --global install $(PWD)
+
+.PHONY: uninstall
+uninstall:
+	pio lib --global uninstall $(PWD)
