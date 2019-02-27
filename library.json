@@ -41,9 +41,9 @@
         {
             "name": "Adafruit SSD1306"
         },
-	{
-	    "name": "Radiohead"
-	},
+        {
+            "name": "Radiohead"
+        },
         {
             "name": "RTClib"
         },
