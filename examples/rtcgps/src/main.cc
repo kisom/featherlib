@@ -23,8 +23,10 @@ FeatherM4	board;
 // connection.
 GPS		gps;
 
-// NB: the Adalogger defaults to having the SD card select on pin 10.
-AdaLogger	logger;
+// NB: setting the Adalogger's CS pin to 0 disables the SD card, which
+// isn't used in the sketch and therefore doesn't require an SD card
+// to be inserted.
+AdaLogger	logger(0);
 
 
 void
