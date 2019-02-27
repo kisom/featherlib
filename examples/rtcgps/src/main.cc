@@ -26,7 +26,7 @@ GPS		gps;
 // NB: setting the Adalogger's CS pin to 0 disables the SD card, which
 // isn't used in the sketch and therefore doesn't require an SD card
 // to be inserted.
-AdaLogger	logger(0);
+Adalogger	logger(0);
 
 
 void

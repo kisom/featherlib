@@ -14,7 +14,7 @@
         "type": "git",
         "url": "https://github.com/kisom/featherlib.git"
     },
-    "version": "0.2.0",
+    "version": "0.2.1",
     "license": "MIT",
     "frameworks": [
         "arduino"
@@ -41,6 +41,9 @@
         {
             "name": "Adafruit SSD1306"
         },
+	{
+	    "name": "Radiohead"
+	},
         {
             "name": "RTClib"
         },

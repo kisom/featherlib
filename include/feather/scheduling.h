@@ -13,4 +13,7 @@ yieldFor(unsigned long ms)
 }
 
 
+void	startThread(void (*thread)());
+
+
 #endif //  __FEATHERLIB_SCHEDULING_H
