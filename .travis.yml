@@ -63,4 +63,4 @@ install:
     - platformio update
 
 script:
-    - platformio ci --lib="." --board=ID_1 --board=ID_2 --board=ID_N
+    - platformio ci --lib="." --board=adafruit_feather_m0 --board=adafruit_feather_m4
