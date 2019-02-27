@@ -7,10 +7,10 @@
 #include <feather/wing/wing.h>
 
 
-class AdaLogger : public FeatherWing, public Clock {
+class Adalogger : public FeatherWing, public Clock {
 public:
-	AdaLogger() : cardSelect(10) {};
-	AdaLogger(uint8_t cs) : cardSelect(cs) {};
+	Adalogger() : cardSelect(10) {};
+	Adalogger(uint8_t cs) : cardSelect(cs) {};
 
 	bool	setup();
 	void	task();
@@ -26,11 +26,13 @@ public:
 	bool	adjustRTC(DateTime &dto);
 	bool	getDateTime(DateTime &dto);
 
-	const char	*name() { return "AdaLogger"; }
+	const char	*name() { return "Adalogger"; }
 private:
 	uint8_t		cardSelect;
 	RTC_PCF8523	rtc;
 	SdFat		card;
+
+	bool		storageDisabled() { return this->cardSelect == 0; };
 };
 
 

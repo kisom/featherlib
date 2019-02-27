@@ -7,11 +7,17 @@
 
 
 bool
-AdaLogger::setup()
+Adalogger::setup()
 {
 	if (!this->rtc.begin()) {
 		Serial.println("RTC BEGIN");
 		return false;
+	}
+
+	// Setting CS to 0 should disable the SD card.
+	if (this->cardSelect == 0) {
+		Serial.println("adalogger: storage disabled");
+		return true;
 	}
 
 	if (!this->card.begin(this->cardSelect)) {
@@ -26,16 +32,21 @@ AdaLogger::setup()
 
 
 void
-AdaLogger::task()
+Adalogger::task()
 {
+	// The Adalogger has no ongoing tasks.
 	yield();
 }
 
 
 // File access routines.
 File
-AdaLogger::openFile(const char *path, bool write)
+Adalogger::openFile(const char *path, bool write)
 {
+	if (this->storageDisabled()) {
+		return File();
+	}
+
 	if (write) {
 		return this->card.open(path, FILE_WRITE);
 	}
@@ -44,36 +55,46 @@ AdaLogger::openFile(const char *path, bool write)
 
 
 bool
-AdaLogger::exists(const char *path)
+Adalogger::exists(const char *path)
 {
+	if (this->storageDisabled()) {
+		return false;
+	}
+
 	return this->card.exists(path);
 }
 
 
 bool
-AdaLogger::remove(const char *path)
+Adalogger::remove(const char *path)
 {
+	if (this->storageDisabled()) {
+		return false;
+	}
 	return this->card.remove(path);
 }
 
 
 bool
-AdaLogger::mkdir(const char *path)
+Adalogger::mkdir(const char *path)
 {
+	if (this->storageDisabled()) {
+		return false;
+	}
 	return this->card.mkdir(path);
 }
 
 
 // RTC routines.
 bool
-AdaLogger::isClockReady()
+Adalogger::isClockReady()
 {
 	return this->rtc.initialized();
 }
 
 
 bool
-AdaLogger::adjustRTC(DateTime &dto)
+Adalogger::adjustRTC(DateTime &dto)
 {
 	this->rtc.adjust(dto);
 	return true;
@@ -81,7 +102,7 @@ AdaLogger::adjustRTC(DateTime &dto)
 
 
 bool
-AdaLogger::getDateTime(DateTime &dto)
+Adalogger::getDateTime(DateTime &dto)
 {
 	if (!this->isClockReady()) {
 		return false;
