@@ -23,18 +23,32 @@
         "atmelsam"
     ],
     "export": {
-        "exclude": ["doc", "examples"]
+        "exclude": [
+            "doc",
+            "examples"
+        ]
     },
     "examples": [
-	"examples/calamity/src/main.cc",
-	"examples/rtcgps/src/main.cc"
+        "examples/*/src/main.cc"
     ],
     "dependencies": [
-        {"name": "Adafruit GFX Library"},
-        {"name": "Adafruit GPS Library"},
-        {"name": "Adafruit SSD1306"},
-        {"name": "RTClib"},
-        {"name": "Scheduler"},
-        {"name": "SdFat"}
+        {
+            "name": "Adafruit GFX Library"
+        },
+        {
+            "name": "Adafruit GPS Library"
+        },
+        {
+            "name": "Adafruit SSD1306"
+        },
+        {
+            "name": "RTClib"
+        },
+        {
+            "name": "Scheduler"
+        },
+        {
+            "name": "SdFat"
+        }
     ]
 }
