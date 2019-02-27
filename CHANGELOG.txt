@@ -1,0 +1,10 @@
+2019-02-26 - v0.2.0
+
+  + Add support for RFM95 LoRa.
+  + Rename AdaLogger class to Adalogger.
+
+2019-02-25 - v0.1.0
+
+  + Initial release.
+  + Supported Feathers: M0 (tested against basic and LoRa feathers), M4.
+  + Supported Featherwings: Adalogger, OLED, Ultimate GPS.

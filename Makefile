@@ -10,6 +10,7 @@ SOURCES :=					\
 		include/feather/wing/adalogger.h\
 		include/feather/wing/gps.h	\
 		include/feather/wing/oled.h	\
+		include/feather/wing/rfm95.h	\
 		include/feather/wing/test.h	\
 		include/feather/wing/wing.h	\
 		src/button.cc			\
@@ -20,8 +21,8 @@ SOURCES :=					\
 		src/wing.cc			\
 		src/wing_gps.cc			\
 		src/wing_oled.cc		\
-		src/wing_test.cc		\
-		src/main.cc
+		src/wing_rfm95.cc		\
+		src/wing_test.cc
 
 PIO :=	pio run -e $(BOARD)
 
