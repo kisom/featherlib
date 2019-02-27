@@ -1,6 +1,10 @@
 featherlib
 ==========
 
+[![Build Status](https://travis-ci.org/kisom/featherlib.svg?branch=master)](https://travis-ci.org/kisom/featherlib)
+
+[PlatformIO library](https://platformio.org/lib/show/6168/featherlib/)
+
 This is a set of building blocks for Adafruit's Feather ecosystem. The
 goal is to make it easier to deploy and write decent modularised code, and
 this library does this by building on top of a number of other libraries.
