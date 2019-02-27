@@ -25,6 +25,10 @@
     "export": {
         "exclude": ["doc", "examples"]
     },
+    "examples": [
+	"examples/calamity/src/main.cc",
+	"examples/rtcgps/src/main.cc"
+    ],
     "dependencies": [
         {"name": "Adafruit GFX Library"},
         {"name": "Adafruit GPS Library"},
