@@ -39,8 +39,6 @@ FeatherM4::setup(int baudrate, bool wait)
 uint32_t
 FeatherM4::random()
 {
-	uint32_t	r = 0;
-
 	if (!this->trngReady) {
 		MCLK->APBCMASK.reg |= MCLK_APBCMASK_TRNG;
 		TRNG->CTRLA.reg = TRNG_CTRLA_ENABLE;
