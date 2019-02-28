@@ -8,10 +8,12 @@
 bool	
 GPS::setup()
 {
-	gps.begin(9600);
-	gps.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
-	gps.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ); // 1 Hz update rate
+	gps.begin(GPS_BAUDRATE);
+	gps.sendCommand(GPS_MODE);
+	gps.sendCommand(GPS_UPDATE_FREQ);
+#ifndef GPS_NO_ANTENNA_UPDATES
 	gps.sendCommand(PGCMD_ANTENNA);
+#endif // GPS_NO_ANTENNA_UPDATES
 	delay(500);
 	return true;
 }
