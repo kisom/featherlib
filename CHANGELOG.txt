@@ -1,3 +1,21 @@
+2019-02-28 - v0.2.3
+
+  + The OLED now supports disabling buttons.
+  + The GPS supports overriding the default mode, update frequency,
+    and baudrate.
+  + Add docs.
+
+2019-02-26 - v0.2.2
+
+  + Fix RadioHead dependency name.
+  + Remove unused variable from the Feather M4 source.
+
+2019-02-26 - v0.2.1
+
+  + Adalogger supports an RTC-only mode.
+  + Add startThread function so users don't have to think
+    about schedulers if it's not a concern.
+
 2019-02-26 - v0.2.0
 
   + Add support for RFM95 LoRa.

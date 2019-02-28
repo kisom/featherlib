@@ -1,7 +1,7 @@
 featherlib
 ==========
 
-[![Build Status](https://travis-ci.org/kisom/featherlib.svg?branch=master)](https://travis-ci.org/kisom/featherlib)
+[![Documentation Status](https://readthedocs.org/projects/featherlib/badge/?version=latest)](https://featherlib.readthedocs.io/en/latest/?badge=latest) [![Build Status](https://travis-ci.org/kisom/featherlib.svg?branch=master)](https://travis-ci.org/kisom/featherlib)
 
 [PlatformIO library](https://platformio.org/lib/show/6168/featherlib/)
 
