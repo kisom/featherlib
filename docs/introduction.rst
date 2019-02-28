@@ -10,9 +10,9 @@ up as a PlatformIO library.
 One of the examples that I use regularly is the program for setting the RTC
 in an Adalogger using the time from an Ultimate GPS wing::
 
-  // rtcgps is a small sketch that sets an Adalogger's RTC to the current
-  // GPS time. It uses a Feather M0, the Ultimate GPS Featherwing, and the
-  // Adalogger Featherwing.
+  // rtcgps is a small sketch that sets an Adalogger's RTC to the 
+  // current GPS time. It uses a Feather M0, the Ultimate GPS
+  // Featherwing, and the Adalogger Featherwing.
   #include <Arduino.h>
   #include <RTClib.h>
   
@@ -35,21 +35,21 @@ in an Adalogger using the time from an Ultimate GPS wing::
   // connection.
   GPS              gps;
   
-  // NB: setting the Adalogger's CS pin to 0 disables the SD card, which
-  // isn't used in the sketch and therefore doesn't require an SD card
-  // to be inserted.
+  // NB: setting the Adalogger's CS pin to 0 disables the SD card,
+  // which isn't used in the sketch and therefore doesn't require an
+  // SD card to be inserted.
   Adalogger        logger(0);
   
   
   void
   setup()
   {
-          // Start the serial port at 9600 baud but don't wait for a serial
-          // connection to continue booting.
+          // Start the serial port at 9600 baud but don't wait for a
+          // serial connection to continue booting.
           board.setup(9600, false);
   
-          // Registering wings allows them to be set up in one pass and allows
-          // any update tasks to be started later on.
+          // Registering wings allows them to be set up in one pass and
+          // allows any update tasks to be started later on.
           registerWing(&gps);
           registerWing(&logger);
   
@@ -70,11 +70,13 @@ in an Adalogger using the time from an Ultimate GPS wing::
   void
   loop()
   {
-          // rtcSet will be set to true when the GPS is used to set the RTC.
+          // rtcSet will be set to true when the GPS is used to set the
+          // RTC.
           static bool        rtcSet = false;
           DateTime           dateTime;
   
-          while (rtcSet) ; // when rtcSet is true, the program will stop.
+          // when rtcSet is true, the program will stop.
+          while (rtcSet) ; 
   
           if (!gps.getDateTime(dateTime)) {
                   return;
