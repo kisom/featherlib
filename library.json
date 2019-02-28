@@ -27,25 +27,25 @@
     ],
     "dependencies": [
         {
-            "name": "13"
+            "name": "Adafruit GFX Library"
         },
         {
-            "name": "20"
+            "name": "Adafruit GPS Library"
         },
         {
-            "name": "135"
+            "name": "Adafruit SSD1306"
         },
         {
-            "name": "124"
+            "name": "RadioHead"
         },
         {
-            "name": "83"
+            "name": "RTClib"
         },
         {
-            "name": "884"
+            "name": "Scheduler"
         },
         {
-            "name": "322"
+            "name": "SdFat"
         }
     ]
 }
