@@ -28,6 +28,7 @@ void
 OLED::clear()
 {
 	this->oled.clearDisplay();
+	this->oled.fillScreen(BLACK);
 }
 
 
@@ -54,6 +55,13 @@ OLED::circle(uint16_t x, uint16_t y, uint16_t r, bool fill)
 	else {
 		this->oled.drawCircle(x, y, r, WHITE);
 	}
+}
+
+
+void
+OLED::line(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
+{
+	this->oled.drawLine(x0, y0, x1, y1, WHITE);
 }
 
 

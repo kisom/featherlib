@@ -19,8 +19,15 @@ Button::read()
 bool
 Button::sample()
 {
-	uint8_t		reading = digitalRead(this->pin);
-	unsigned long	sampledAt = millis();
+	uint8_t		reading;
+	unsigned long	sampledAt;
+
+	if (!this->pin) {
+		return false;
+	}
+
+	reading = digitalRead(this->pin);
+	sampledAt = millis();
 
 	if (reading != this->value) {
 		return false;

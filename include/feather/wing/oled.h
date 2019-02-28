@@ -48,6 +48,7 @@ public:
 	void	pixel(uint16_t x, uint16_t y);
 	void	clearPixel(uint16_t x, uint16_t y);
 	void	circle(uint16_t x, uint16_t y, uint16_t r, bool fill);
+	void	line(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
 	void	show();
 
 	// Text display routines.

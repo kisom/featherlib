@@ -19,7 +19,9 @@ public:
 			      lastSample(0),
 			      cb(nullptr)
 	{
-		pinMode(pin, INPUT_PULLUP);
+		if (pin) {
+			pinMode(pin, INPUT_PULLUP);
+		}
 	};
 	uint8_t	read();			// Return the button's current value.
 	bool	sample();		// Take another reading of the button.
