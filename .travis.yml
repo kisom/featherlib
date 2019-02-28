@@ -63,4 +63,5 @@ install:
     - platformio update
 
 script:
+    - platformio lib install -g 13 20 135 124 83 884 322
     - platformio ci --lib="." --board=adafruit_feather_m0 --board=adafruit_feather_m4
