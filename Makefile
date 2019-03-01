@@ -6,6 +6,7 @@ SOURCES :=					\
 		include/feather/feather_m0.h	\
 		include/feather/feather_m4.h	\
 		include/feather/scheduling.h	\
+		include/feather/trigger.h	\
 		include/feather/util.h		\
 		include/feather/wing/adalogger.h\
 		include/feather/wing/gps.h	\
@@ -16,6 +17,7 @@ SOURCES :=					\
 		src/button.cc			\
 		src/feather_m0.cc		\
 		src/feather_m4.cc		\
+		src/trigger.cc			\
 		src/util.cc			\
 		src/wing_adalogger.cc		\
 		src/wing.cc			\
