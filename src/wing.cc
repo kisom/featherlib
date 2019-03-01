@@ -53,6 +53,15 @@ scheduleWingTasks()
 
 
 bool
+clockFormatTime(DateTime &dto, char *buf)
+{
+	sprintf(buf, "%04d-%02d-%02d %02d:%02d:%02d",
+		dto.year(), dto.month(), dto.day(),
+		dto.hour(), dto.minute(), dto.second());
+	return true;
+}
+
+bool
 clockFormatTime(Clock &clock, char *buf)
 {
 	DateTime	dto;
@@ -61,8 +70,5 @@ clockFormatTime(Clock &clock, char *buf)
 		return false;
 	}
 
-	sprintf(buf, "%04d-%02d-%02d %02d:%02d:%02d",
-		dto.year(), dto.month(), dto.day(),
-		dto.hour(), dto.minute(), dto.second());
-	return true;
+	return clockFormatTime(dto, buf);
 }
