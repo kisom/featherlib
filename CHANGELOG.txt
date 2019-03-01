@@ -1,3 +1,11 @@
+2019-02-28 - v0.2.5
+
+  + Fix Travis CI build.
+
+2019-02-28 - v0.2.4
+
+  + Switch to fork of RadioHead library that supports the M4 boards.
+
 2019-02-28 - v0.2.3
 
   + The OLED now supports disabling buttons.
