@@ -36,7 +36,7 @@
             "name": "Adafruit SSD1306"
         },
         {
-            "version": "https://github.com/kisom/RadioHead/archive/master.zip"
+            "version": "https://github.com/kisom/RadioHead.git"
         },
         {
             "name": "RTClib"

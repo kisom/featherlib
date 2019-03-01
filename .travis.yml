@@ -64,5 +64,5 @@ install:
 
 script:
     - platformio lib -g install 13 20 135 83 884 322
-    - platformio lib -g install https://github.com/kisom/RadioHead/archive/master.zip
+    - platformio lib -g install https://github.com/kisom/RadioHead.git
     - platformio ci --lib="." --board=adafruit_feather_m0 --board=adafruit_feather_m4
