@@ -29,7 +29,7 @@
 
 class RFM95 : public FeatherWing {
 public:
-	RFM95() { RFM95(RFM95_CS, RFM95_INT, RFM95_RST); }
+	RFM95() : cs(RFM95_CS), irq(RFM95_INT), rst(RFM95_RST), radio(RFM95_CS, RFM95_INT) {}
 	RFM95(uint8_t cs, uint8_t irq, uint8_t rst) :
 		cs(cs), irq(irq), rst(rst), radio(cs, irq) { }
 
