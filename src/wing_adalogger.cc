@@ -113,6 +113,5 @@ Adalogger::getDateTime(DateTime &dto)
 	char		buf[20];
 	sprintf(buf, "%04d-%02d-%02d %02d:%0d:%02d", dto.year(), dto.month(),
 	        dto.day(), dto.hour(), dto.minute(), dto.second());
-	Serial.println(buf);
 	return true;	
 }
