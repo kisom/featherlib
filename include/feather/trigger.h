@@ -7,8 +7,10 @@ class Trigger {
 public:
 	Trigger(unsigned long delta) : next(0), delta(delta) {}
 	Trigger(unsigned long delta, bool skipFirst);
-	bool ready();
-	bool ready(unsigned long now);
+	bool	ready();
+	bool	ready(unsigned long now);
+	void	reset();
+	void	reset(unsigned long now);
 
 private:
 	unsigned long	next;

@@ -24,9 +24,23 @@ bool
 Trigger::ready(unsigned long now)
 {
 	if (this->next < now) {
-		this->next = now + this->delta;
+		this->next += this->delta;
 		return true;
 	}
 
 	return false;
+}
+
+
+void
+Trigger::reset()
+{
+	this->reset(millis());
+}
+
+
+void
+Trigger::reset(unsigned long now)
+{
+	this->next = now + this->delta;
 }
