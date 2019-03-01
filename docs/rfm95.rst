@@ -40,8 +40,9 @@ The class provides the following methods:
   the message contained in ``buf``; if ``blocking`` is true, the method
   will block until transmission is complete.
 * ``bool receive(uint8_t *buf, uint8_t *len, int16_t *rssi)`` returns true
-  if a message is available. ``buf`` must have at least 251 bytes available,
+  if a message is available. ``buf`` should have at least 251 bytes available,
   which is the maximum message length for an RFM95 message. If ``rssi`` is
   not NULL, it will be set to the received signal strength. The message length
-  will be returned via ``len``.
+  will be returned via ``len``, which must be set to the size of ``buf`` before
+  being passed to this method.
 

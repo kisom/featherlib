@@ -32,7 +32,14 @@ The ``ready`` method has two forms:
 * ``bool ready()`` calls ``ready(millis())``.
 * ``bool ready(unsigned long now)`` allows the same ``millis`` value to be
   reused in multiple places to avoid calling the function multiple
-  times.
+  times. When the allotted time is up, the trigger will reset to the last
+  update time plus the delta.
+
+Finally, there is a ``reset`` method:
+
+* ``void reset()``  calls ``reset(millis())``.
+* ``void reset(unsigned long now)`` resets the trigger to fire next in
+  ``now`` + ``delta`` milliseconds.
 
 
 Util
