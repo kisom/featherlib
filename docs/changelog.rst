@@ -3,6 +3,11 @@ Changelog
 
 This is a list of the release versions of this library.
 
+v0.3.1 - 2019-02-28
+-------------------
+
+* Fix RFM95 constructor.
+
 v0.3.0 - 2019-02-28
 -------------------
 

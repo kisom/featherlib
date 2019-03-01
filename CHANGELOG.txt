@@ -1,3 +1,7 @@
+2019-02-28 - v0.3.1
+
+  + Fix RFM95 constructor.
+
 2019-02-28 - v0.3.0
 
   + Fix subclassing issue with RFM95.
