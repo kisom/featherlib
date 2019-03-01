@@ -14,7 +14,7 @@
         "type": "git",
         "url": "https://github.com/kisom/featherlib.git"
     },
-    "version": "0.3.1",
+    "version": "0.3.2",
     "license": "MIT",
     "frameworks": [
         "arduino"
@@ -23,7 +23,7 @@
         "atmelsam"
     ],
     "examples": [
-        "examples/*/src/main.cc"
+        "examples/src/*.cc"
     ],
     "dependencies": [
         {

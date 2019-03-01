@@ -1,3 +1,8 @@
+2019-02-28 - v0.3.2
+
+  + Add Trigger class.
+  + Add more examples.
+
 2019-02-28 - v0.3.1
 
   + Fix RFM95 constructor.

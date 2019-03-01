@@ -3,6 +3,12 @@ Changelog
 
 This is a list of the release versions of this library.
 
+v0.3.2 - 2019-02-28
+-------------------
+
+* Add Trigger class.
+* Add more examples.
+
 v0.3.1 - 2019-02-28
 -------------------
 
