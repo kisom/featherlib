@@ -19,6 +19,7 @@ featherlib
    oled
    rfm95
    ultimate_gps
+   misc
 
 
 
