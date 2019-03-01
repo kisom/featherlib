@@ -3,6 +3,12 @@ Changelog
 
 This is a list of the release versions of this library.
 
+v0.3.0 - 2019-02-28
+-------------------
+
+* Fix subclassing issue with RFM95.
+* Support formatting a DateTime object directly.
+
 v0.2.5 - 2019-02-28
 -------------------
 

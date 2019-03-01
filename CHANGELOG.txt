@@ -1,3 +1,8 @@
+2019-02-28 - v0.3.0
+
+  + Fix subclassing issue with RFM95.
+  + Support formatting a DateTime object directly.
+
 2019-02-28 - v0.2.5
 
   + Fix Travis CI build.
