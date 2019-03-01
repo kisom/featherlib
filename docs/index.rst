@@ -11,6 +11,7 @@ featherlib
    :caption: Contents:
 
    introduction
+   changelog
    organisation
    boards
    wings
