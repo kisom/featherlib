@@ -99,68 +99,59 @@ to be working out well for the projects I've been using it in.
 Overhead
 --------
 
-As a test, I've compiled a basic Arduino sketch for the Feather M0:
+As a test, I've compiled a basic Arduino sketch for the Feather M0::
 
-```c++
-#include <Arduino.h>
+  #include <Arduino.h>
+  
+  
+  void
+  setup()
+  {
+          Serial.begin(9600);
+          while (!Serial) ;
+          Serial.println("boot OK");
+  }
+  
+  
+  void
+  loop()
+  {
+  
+  }
 
+Building this with PlatformIO shows the following sizes::
 
-void
-setup()
-{
-        Serial.begin(9600);
-        while (!Serial) ;
-        Serial.println("boot OK");
-}
+  Building .pioenvs/adafruit_feather_m0/firmware.bin
+  Memory Usage -> http://bit.ly/pio-memory-usage
+  DATA:    [=         ]   8.0% (used 2620 bytes from 32768 bytes)
+  PROGRAM: [          ]   4.2% (used 10992 bytes from 262144 bytes)
 
+and the equivalent using the featherlib library::
 
-void
-loop()
-{
+  #include <Arduino.h>
+  
+  
+  void
+  setup()
+  {
+  	Serial.begin(9600);
+  	while (!Serial) ;
+  	Serial.println("boot OK");
+  }
+  
+  
+  void
+  loop()
+  {
+  
+  }
 
-}
-```
+yields the following sizes::
 
-Building this with PlatformIO shows the following sizes:
-
-```
-Building .pioenvs/adafruit_feather_m0/firmware.bin
-Memory Usage -> http://bit.ly/pio-memory-usage
-DATA:    [=         ]   8.0% (used 2620 bytes from 32768 bytes)
-PROGRAM: [          ]   4.2% (used 10992 bytes from 262144 bytes)
-```
-
-and the equivalent using the featherlib library:
-
-```c++
-```c++
-#include <Arduino.h>
-
-
-void
-setup()
-{
-	Serial.begin(9600);
-	while (!Serial) ;
-	Serial.println("boot OK");
-}
-
-
-void
-loop()
-{
-
-}
-```
-
-yields the following sizes:
-
-```
-Building .pioenvs/adafruit_feather_m0/firmware.bin
-Memory Usage -> http://bit.ly/pio-memory-usage
-DATA:    [=         ]   8.1% (used 2648 bytes from 32768 bytes)
-PROGRAM: [=         ]   5.2% (used 13568 bytes from 262144 bytes)
-```
+  Building .pioenvs/adafruit_feather_m0/firmware.bin
+  Memory Usage -> http://bit.ly/pio-memory-usage
+  DATA:    [=         ]   8.1% (used 2648 bytes from 32768 bytes)
+  PROGRAM: [=         ]   5.2% (used 13568 bytes from 262144 bytes)
 
 The additional program space is taken up by the random number
 seeding. It's worse in this case because a fair amount of additional
