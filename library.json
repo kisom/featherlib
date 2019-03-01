@@ -36,6 +36,7 @@
             "name": "Adafruit SSD1306"
         },
         {
+            "name": "RadioHead",
             "version": "https://github.com/kisom/RadioHead.git"
         },
         {
