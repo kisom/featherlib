@@ -11,6 +11,12 @@ RFM95::setup()
 
 	if (!this->radio.init()) {
 		Serial.println("failed to start radio");
+		Serial.print("CS: ");
+		Serial.print(this->cs);
+		Serial.print(", IRQ: ");
+		Serial.print(this->irq);
+		Serial.print(", RST: ");
+		Serial.println(this->rst);
 		return false;
 	}
 
