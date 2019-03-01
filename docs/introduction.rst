@@ -129,14 +129,18 @@ Building this with PlatformIO shows the following sizes::
 and the equivalent using the featherlib library::
 
   #include <Arduino.h>
+  #include <feather/feather.h>
+  
+  
+  FeatherM0        board;
   
   
   void
   setup()
   {
-  	Serial.begin(9600);
-  	while (!Serial) ;
-  	Serial.println("boot OK");
+          board.setup(9600, true);
+  
+          Serial.println("BOOT OK");
   }
   
   
