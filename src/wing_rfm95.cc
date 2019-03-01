@@ -10,10 +10,13 @@ RFM95::setup()
 	digitalWrite(this->rst, HIGH);
 
 	if (!this->radio.init()) {
+		Serial.println("failed to start radio");
 		return false;
 	}
 
 	if (!this->radio.setFrequency(LORA_FREQ)) {
+		Serial.print("failed to set frequency to ");
+		Serial.println(LORA_FREQ, 1);
 		return false;
 	}
 
