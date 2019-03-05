@@ -45,6 +45,26 @@ GPS::haveFix()
 }
 
 
+float
+convert_reading(float reading)
+{
+	float	base, converted, sec;
+	int16_t deg, min;
+
+	base = trunc(reading);
+	deg = static_cast<int16_t>(base) / 100;
+	min = static_cast<int16_t>(base) % 100;
+	sec = static_cast<float>(reading) - trunc(reading);
+
+	sec *= 0.027777777; // * 100 / 3600
+	converted = min;
+	converted /= 60;
+	converted += deg;
+	converted += sec;
+	return converted;
+}
+
+
 bool	
 GPS::position(Position &pos)
 {
@@ -52,8 +72,8 @@ GPS::position(Position &pos)
 		return false;
 	}
 
-	pos.latitude = gps.latitude;
-	pos.longitude = gps.longitude;
+	pos.latitude = convert_reading(gps.latitude);
+	pos.longitude = convert_reading(gps.longitude);
 	pos.timestamp.year = gps.year + 2000;
 	pos.timestamp.month = gps.month;
 	pos.timestamp.day = gps.day;
