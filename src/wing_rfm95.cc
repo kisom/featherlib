@@ -7,7 +7,7 @@ bool
 RFM95::setup()
 {
 	pinMode(this->rst, OUTPUT);
-	digitalWrite(this->rst, HIGH);
+	this->enable();
 
 	if (!this->radio.init()) {
 		Serial.println("failed to start radio");
@@ -79,3 +79,25 @@ RFM95::receive(uint8_t *buf, uint8_t *len, int16_t *rssi)
 	return false;
 }
 
+
+void		 
+RFM95::disable()
+{
+	digitalWrite(this->rst, LOW);
+}
+
+
+void
+RFM95::enable()
+{
+	digitalWrite(this->rst, HIGH);
+}
+
+
+void
+RFM95::reset()
+{
+	this->disable();
+	delay(10);
+	this->enable();
+}

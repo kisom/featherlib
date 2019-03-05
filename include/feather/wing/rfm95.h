@@ -41,6 +41,9 @@ public:
 	void		 setPower(uint8_t);
 	void		 transmit(uint8_t *buf, uint8_t len, bool blocking);
 	bool		 receive(uint8_t *buf, uint8_t *len, int16_t *rssi);
+	void		 disable();
+	void		 enable();
+	void		 reset();
 
 
 private:

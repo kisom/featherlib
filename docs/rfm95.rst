@@ -46,3 +46,9 @@ The class provides the following methods:
   will be returned via ``len``, which must be set to the size of ``buf`` before
   being passed to this method.
 
+Finally, three radio control methods are provided:
+
+* ``void disable()`` pulls the reset pin low.
+* ``void enable()`` pulls the reset pin high.
+* ``void reset()`` performs a manual reset, pulling the reset pin low
+  for 10 ms, then pulling the reset pin high.
