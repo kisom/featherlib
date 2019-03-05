@@ -53,3 +53,7 @@ position data:
 The ``GPS`` class is also an instance of the ``Clock`` virtual class,
 and therefore provides the relevant RTC methods.
 
+Note that the returned GPS coordinates have a precision of six
+decimal degrees at most. According to
+`this <https://en.wikipedia.org/wiki/Decimal_degrees>` article,
+that should be sufficient for fairly precise locations.
