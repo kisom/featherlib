@@ -61,3 +61,10 @@ install:
 .PHONY: uninstall
 uninstall:
 	pio lib --global uninstall $(PWD)
+
+.PHONY: test
+test:
+	(cd examples/calamity && pio run)
+	(cd examples/lorabcn && pio run)
+	(cd examples/loraspy && pio run)
+	(cd examples/rtcgps && pio run)
