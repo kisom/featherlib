@@ -3,6 +3,12 @@ Changelog
 
 This is a list of the release versions of this library.
 
+v0.3.3 - 2019-03-04
+-------------------
+
+  + Convert GPS results from DDMM.SSSS to decimal.
+  + Support enable, disable, and reset on the RFM95.
+
 v0.3.2 - 2019-02-28
 -------------------
 

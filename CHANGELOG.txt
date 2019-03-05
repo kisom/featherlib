@@ -1,3 +1,8 @@
+2019-03-04 - v0.3.3
+
+  + Convert GPS results from DDMM.SSSS to decimal.
+  + Support enable, disable, and reset on the RFM95.
+
 2019-02-28 - v0.3.2
 
   + Add Trigger class.
