@@ -5,10 +5,10 @@
 
 Trigger::Trigger(unsigned long delta, bool skipFirst)
 {
-	this->next = 0;
+	this->start = 0;
 	this->delta = delta;
 	if (skipFirst) {
-		this->next = millis() + delta;
+		this->start = millis() + delta;
 	}
 }
 
@@ -23,8 +23,8 @@ Trigger::ready()
 bool
 Trigger::ready(unsigned long now)
 {
-	if (this->next < now) {
-		this->next += this->delta;
+	if (now - this->start > this->delta) {
+		this->start = now;
 		return true;
 	}
 
@@ -42,5 +42,5 @@ Trigger::reset()
 void
 Trigger::reset(unsigned long now)
 {
-	this->next = now + this->delta;
+	this->start = now;
 }
