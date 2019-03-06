@@ -3,6 +3,12 @@ Changelog
 
 This is a list of the release versions of this library.
 
+v0.3.4 - 2019-03-05
+-------------------
+
+  + Fix trigger logic.
+  + Add test target to Makefile.
+
 v0.3.3 - 2019-03-04
 -------------------
 
