@@ -1,3 +1,6 @@
+
+  + Add more examples to Travis.
+
 2019-03-05 - v0.3.4
 
   + Fix trigger logic.
