@@ -68,3 +68,10 @@ script:
     - platformio lib -g install 13 20 135 83 884 322
     - platformio lib -g install https://github.com/kisom/RadioHead.git
     - platformio ci --lib="." $PLATFORMIO_CI_EXTRA_ARGS
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+  irc:
+    - "ircs://irc.tyrfingr.is:6697/#travis"
