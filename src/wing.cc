@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <feather/wing/wing.h>
-#include <Scheduler.h>
+#include <kasl/scheduling.h>
 
 
 static std::vector<FeatherWing *>	wingRegistry;
@@ -48,7 +48,7 @@ runWings()
 void
 scheduleWingTasks()
 {
-	Scheduler.startLoop(runWings);
+	scheduleThread(runWings);
 }
 
 

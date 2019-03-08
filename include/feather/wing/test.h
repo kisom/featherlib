@@ -3,7 +3,6 @@
 
 
 #include <Arduino.h>
-#include <Scheduler.h>
 #include <feather/wing/wing.h>
 
 

@@ -4,8 +4,8 @@
 #include <Arduino.h>
 #include <string.h>
 
+#include <kasl/scheduling.h>
 #include <feather/feather.h>
-#include <feather/scheduling.h>
 #include <feather/trigger.h>
 #include <feather/wing/rfm95.h>
 
@@ -70,12 +70,12 @@ setup()
 		distress();
 	}
 		
-	// Start up a background task to blink the LED.
-	startThread(beacon);
 	Serial.println("BOOT OK");
+
+	// Start up a background task to blink the LED.
+	scheduleThread(beacon);
+	startScheduler();
 }
-
-
 
 
 void
@@ -86,6 +86,7 @@ loop()
 	static int16_t	packetno = 0; 
 	uint8_t		buf[20];
 
+	runScheduler();
 	if (transmit.ready()) {
 		sprintf((char *)buf, "hello world #%0u", ++packetno);
 		radio.transmit(buf, 18, true);

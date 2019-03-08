@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <Scheduler.h>
 #include <RTClib.h>
 #include <SdFat.h>
 

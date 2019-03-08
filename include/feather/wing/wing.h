@@ -2,7 +2,6 @@
 #define __FEATHERLIB_WING_WING_H
 
 
-#include <Scheduler.h>
 #include <RTClib.h>
 
 

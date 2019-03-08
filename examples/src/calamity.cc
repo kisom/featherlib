@@ -9,7 +9,7 @@
 // scheduling contains useful functions for working with the Arduino
 // task scheduler; it's used here for the `yieldFor` function that
 // acts like a delay that coöperates with other threads.
-#include <feather/scheduling.h>
+#include <kasl/scheduling.h>
 #include <feather/wing/wing.h>
 #include <feather/wing/oled.h>
 

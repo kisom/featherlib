@@ -1,4 +1,6 @@
+2019-03-08 - v0.4.0
 
+  + Remove scheduling functions as part of cross-platform effort.
   + Add more examples to Travis.
 
 2019-03-05 - v0.3.4

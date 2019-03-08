@@ -8,14 +8,8 @@ under direct hardware support, but that I find myself using often.
 Scheduling
 ----------
 
-If ``feather/scheduling.h`` is included, the following functions are
-available:
-
-* ``void yieldFor(unsigned long ms)`` will yield for at least ``ms``
-  milliseconds. It acts like a cooperative delay.
-* ``void startThread(void (*thread)())`` will launch ``thread`` as
-  a background task using the Arduino scheduler.
-
+Scheduling used to be done in this library, but it has been moved to
+`KASL <https://kasl.readthedocs.io/en/latest/scheduling.html>`__.
 
 Triggers
 --------

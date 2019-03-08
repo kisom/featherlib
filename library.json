@@ -14,7 +14,7 @@
         "type": "git",
         "url": "https://github.com/kisom/featherlib.git"
     },
-    "version": "0.3.4",
+    "version": "0.4.0",
     "license": "MIT",
     "frameworks": [
         "arduino"
@@ -34,6 +34,9 @@
         },
         {
             "name": "Adafruit SSD1306"
+        },
+	{
+            "name": "kasl"
         },
         {
             "name": "RadioHead",

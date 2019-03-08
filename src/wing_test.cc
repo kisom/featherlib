@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #undef max
 #undef min
-#include <Scheduler.h>
 #include <feather/wing/test.h>
 
 

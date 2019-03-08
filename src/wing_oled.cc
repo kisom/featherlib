@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <Scheduler.h>
 #include <feather/wing/oled.h>
 #include <feather/wing/wing.h>
 
