@@ -55,10 +55,10 @@ cache:
         - "~/.platformio"
 
 env:
-    - PLATFORMIO_CI_SRC=examples/rtcgps
-    - PLATFORMIO_CI_SRC=examples/calamity
-    - PLATFORMIO_CI_SRC=examples/lorabcn
-    - PLATFORMIO_CI_SRC=examples/loraspy
+    - PLATFORMIO_CI_SRC=examples/rtcgps PLATFORMIO_CI_EXTRA_ARGS="--board adafruit_feather_m0 --board adafruit_feather_m4"
+    - PLATFORMIO_CI_SRC=examples/calamity PLATFORMIO_CI_EXTRA_ARGS="--board adafruit_feather_m0 --board adafruit_feather_m4"
+    - PLATFORMIO_CI_SRC=examples/lorabcn PLATFORMIO_CI_EXTRA_ARGS="--board adafruit_feather_m0"
+    - PLATFORMIO_CI_SRC=examples/loraspy PLATFORMIO_CI_EXTRA_ARGS="--board adafruit_feather_m0"
 
 install:
     - pip install -U platformio
@@ -67,4 +67,4 @@ install:
 script:
     - platformio lib -g install 13 20 135 83 884 322
     - platformio lib -g install https://github.com/kisom/RadioHead.git
-    - platformio ci --lib="." --board=adafruit_feather_m0 --board=adafruit_feather_m4
+    - platformio ci --lib="." $PLATFORMIO_CI_EXTRA_ARGS
