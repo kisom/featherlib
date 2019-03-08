@@ -5,7 +5,6 @@
 #include <RTClib.h>
 
 #include <feather/feather.h>
-#include <feather/scheduling.h>
 #include <feather/wing/adalogger.h>
 #include <feather/wing/gps.h>
 
