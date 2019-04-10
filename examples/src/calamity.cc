@@ -7,7 +7,7 @@
 #include <feather/feather.h>
 
 // scheduling contains useful functions for working with the Arduino
-// task scheduler; it's used here for the `yieldFor` function that
+// task scheduler; it's used here for the `kasl::yieldFor` function that
 // acts like a delay that coöperates with other threads.
 #include <kasl/scheduling.h>
 #include <feather/wing/wing.h>
@@ -35,9 +35,9 @@ calamity()
 {
 	for (uint8_t i = 0; i < 8; i++) {
 		display.print(2, "CALAMITY");
-		yieldFor(250);
+		kasl::yieldFor(250);
 		display.iprint(2, "CALAMITY");
-		yieldFor(250);
+		kasl::yieldFor(250);
 	}
 	
 	display.clearLine(2);
@@ -87,5 +87,5 @@ loop()
 		display.iprint(0, "LED ON");
 	}
 
-	yieldFor(1000);
+	kasl::yieldFor(1000);
 }

@@ -40,13 +40,13 @@ void
 beacon()
 {
 	digitalWrite(ledPin, HIGH);
-	yieldFor(100);
+	kasl::yieldFor(100);
 	digitalWrite(ledPin, LOW);
-	yieldFor(100);
+	kasl::yieldFor(100);
 	digitalWrite(ledPin, HIGH);
-	yieldFor(100);
+	kasl::yieldFor(100);
 	digitalWrite(ledPin, LOW);
-	yieldFor(700);
+	kasl::yieldFor(700);
 }
 
 
@@ -73,8 +73,8 @@ setup()
 	Serial.println("BOOT OK");
 
 	// Start up a background task to blink the LED.
-	scheduleThread(beacon);
-	startScheduler();
+	kasl::scheduleThread(beacon);
+	kasl::startScheduler();
 }
 
 
@@ -86,7 +86,7 @@ loop()
 	static int16_t	packetno = 0; 
 	uint8_t		buf[20];
 
-	runScheduler();
+	kasl::runScheduler();
 	if (transmit.ready()) {
 		sprintf((char *)buf, "hello world #%0u", ++packetno);
 		radio.transmit(buf, 18, true);

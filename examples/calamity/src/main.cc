@@ -35,9 +35,9 @@ calamity()
 {
 	for (uint8_t i = 0; i < 8; i++) {
 		display.print(2, "CALAMITY");
-		yieldFor(250);
+		kasl::yieldFor(250);
 		display.iprint(2, "CALAMITY");
-		yieldFor(250);
+		kasl::yieldFor(250);
 	}
 	
 	display.clearLine(2);
@@ -87,5 +87,5 @@ loop()
 		display.iprint(0, "LED ON");
 	}
 
-	yieldFor(1000);
+	kasl::yieldFor(1000);
 }
