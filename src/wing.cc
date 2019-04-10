@@ -48,7 +48,7 @@ runWings()
 void
 scheduleWingTasks()
 {
-	scheduleThread(runWings);
+	kasl::scheduleThread(runWings);
 }
 
 

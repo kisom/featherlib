@@ -3,17 +3,29 @@ Changelog
 
 This is a list of the release versions of this library.
 
+v0.4.1 - 2019-04-10
+-------------------
+
+* Add missing namespace on thread scheduling in the wing helpers.
+
+v0.4.0 - 2019-03-08 
+-------------------
+
+* Remove scheduling functions as part of cross-platform effort.
+* Add more examples to Travis.
+
+
 v0.3.4 - 2019-03-05
 -------------------
 
-  + Fix trigger logic.
-  + Add test target to Makefile.
+* Fix trigger logic.
+* Add test target to Makefile.
 
 v0.3.3 - 2019-03-04
 -------------------
 
-  + Convert GPS results from DDMM.SSSS to decimal.
-  + Support enable, disable, and reset on the RFM95.
+* Convert GPS results from DDMM.SSSS to decimal.
+* Support enable, disable, and reset on the RFM95.
 
 v0.3.2 - 2019-02-28
 -------------------
